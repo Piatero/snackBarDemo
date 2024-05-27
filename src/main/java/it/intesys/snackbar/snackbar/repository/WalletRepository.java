@@ -1,8 +1,11 @@
 package it.intesys.snackbar.snackbar.repository;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Repository
 public class WalletRepository {
     private Map<String, Double> walletByUserId;
 

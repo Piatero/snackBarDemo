@@ -24,4 +24,10 @@ public class SnackRepository {
     public Boolean snackAvailable (String snack) {
         return quantityBySnackId.get(snack) > 0;
     }
+
+    public Integer decrementAvailable(String snack) {
+        quantityBySnackId.put(snack, quantityBySnackId.get(snack) - 1);
+        return quantityBySnackId.get(snack);
+    }
+
 }

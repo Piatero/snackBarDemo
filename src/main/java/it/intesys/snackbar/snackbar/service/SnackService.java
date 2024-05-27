@@ -43,8 +43,10 @@ public class SnackService {
         }
 
         Double newBalance = walletRepository.withdrawMoney(user, snackPrice);
+        Integer newSnackQuantity = snackRepository.decrementAvailable(snack);
 
         System.out.println("User %s now has %s euros".formatted(user, newBalance));
+        System.out.println("Snack %s now has %s pieces available".formatted(snack, newSnackQuantity));
 
 
 
