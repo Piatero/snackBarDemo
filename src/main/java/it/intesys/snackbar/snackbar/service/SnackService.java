@@ -39,16 +39,25 @@ public class SnackService {
         Double userMoney = walletRepository.getMoneyByUserId(user);
 
         if (snackPrice > userMoney) {
-            throw new IllegalArgumentException("User "+ user + "doesn't have enough money to buy " + snack);
+            throw new IllegalArgumentException("User %s doesn't have enough money to buy %s".formatted(user, snack));
         }
 
-        // verifico utente ha soldi nel wallet
+        Double newBalance = walletRepository.withdrawMoney(user, snackPrice)
+
+        System.out.println("User %s now has %s euros".formatted(user, newBalance));
+
+
 
 
         // scalo i soldi dal wallet dell'utente
         // scalo la disponibilità dello snack
 
         // verifico se snack cade
+
+        return true;
+    }
+
+    private Boolean snackTransaction() {
 
         return true;
     }

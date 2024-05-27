@@ -18,4 +18,8 @@ public class WalletRepository {
         return walletByUserId.get(user);
     }
 
+    public Double withdrawMoney(String user, Double amount) {
+        walletByUserId.put(user, walletByUserId.get(user) - amount);
+        return walletByUserId.get(user);
+    }
 }
