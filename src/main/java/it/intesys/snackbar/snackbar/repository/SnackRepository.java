@@ -2,6 +2,7 @@ package it.intesys.snackbar.snackbar.repository;
 
 import org.springframework.stereotype.Repository;
 
+import java.awt.image.ImageProducer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +29,20 @@ public class SnackRepository {
     public Integer decrementAvailable(String snack) {
         quantityBySnackId.put(snack, quantityBySnackId.get(snack) - 1);
         return quantityBySnackId.get(snack);
+    }
+
+
+
+    public Map<String, Integer> refillSnacksToMachine(Map<String, String> snacks) {
+        Map<String, Integer> added = new HashMap<>();
+        snacks.forEach((key, value) -> {
+            int intValue = Integer.parseInt(value);
+            if (quantityBySnackId.containsKey(key)) {
+                quantityBySnackId.put(key, quantityBySnackId.get(key) + intValue);
+                added.put(key, intValue);
+            }
+        });
+        return added;
     }
 
 }

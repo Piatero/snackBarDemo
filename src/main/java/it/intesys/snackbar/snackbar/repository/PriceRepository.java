@@ -21,6 +21,8 @@ public class PriceRepository {
         return priceBySnackId.get(snack);
     }
 
-
+    public Double setNewPriceForSnackId(String snack, Double newPrice) {
+        return priceBySnackId.put(snack, newPrice);
+    }
 
 }

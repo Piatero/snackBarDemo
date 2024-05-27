@@ -1,2 +1,6 @@
 ###
-GET http://localhost:8080/api/order-snack?user=test&snack=snack
+GET http://localhost:8080/api/order-snack?user=Talha&snack=Mars
+###
+GET http://localhost:8080/api/add-money?user=Talha&amount=10.0
+###
+GET http://localhost:8080/api/refill-machine?chips=1&test=2&miao=4&Twix=3

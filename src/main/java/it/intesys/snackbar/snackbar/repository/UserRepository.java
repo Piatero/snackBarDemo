@@ -18,9 +18,6 @@ public class UserRepository {
     }
 
     public Boolean userExists (String user) {
-
         return users.contains(user);
     }
-
-
 }

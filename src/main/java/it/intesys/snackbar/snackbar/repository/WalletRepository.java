@@ -25,4 +25,9 @@ public class WalletRepository {
         walletByUserId.put(user, walletByUserId.get(user) - amount);
         return walletByUserId.get(user);
     }
+
+    public Double addMoney(String user, Double amount) {
+        walletByUserId.put(user, walletByUserId.get(user) + amount);
+        return walletByUserId.get(user);
+    }
 }
