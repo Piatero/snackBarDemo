@@ -42,7 +42,7 @@ public class SnackService {
             throw new IllegalArgumentException("User %s doesn't have enough money to buy %s".formatted(user, snack));
         }
 
-        Double newBalance = walletRepository.withdrawMoney(user, snackPrice)
+        Double newBalance = walletRepository.withdrawMoney(user, snackPrice);
 
         System.out.println("User %s now has %s euros".formatted(user, newBalance));
 
