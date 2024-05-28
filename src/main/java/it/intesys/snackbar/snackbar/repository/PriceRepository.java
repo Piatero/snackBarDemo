@@ -23,6 +23,7 @@ public class PriceRepository {
 
     public Map.Entry<String, Double> setNewPriceForSnackId(String snack, Double newPrice) {
         Double nP = priceBySnackId.put(snack, newPrice);
+        assert nP != null;
         return Map.entry(snack, nP);
     }
 

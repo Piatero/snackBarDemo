@@ -13,12 +13,9 @@ import java.util.Map;
 @RequestMapping("/api")
 @RestController
 public class AdminController {
-    private final SnackService snackService;
     private final VendingMachineService vendingMachineService;
 
-
     public AdminController(SnackService snackService, VendingMachineService vendingMachineService) {
-        this.snackService = snackService;
         this.vendingMachineService = vendingMachineService;
     }
 

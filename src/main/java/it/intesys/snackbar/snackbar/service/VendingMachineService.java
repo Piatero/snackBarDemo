@@ -13,12 +13,10 @@ public class VendingMachineService {
     private static final Logger log = LoggerFactory.getLogger(VendingMachineService.class);
     private final UserService userService;
     private final SnackService snackService;
-    private final SnackRepository snackRepository;
 
     public VendingMachineService(UserService userService, SnackService snackService, SnackRepository snackRepository) {
         this.userService = userService;
         this.snackService = snackService;
-        this.snackRepository = snackRepository;
     }
 
     public Boolean orderSnack (String user, String snack) {
