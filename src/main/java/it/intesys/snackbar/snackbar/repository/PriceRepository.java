@@ -21,8 +21,13 @@ public class PriceRepository {
         return priceBySnackId.get(snack);
     }
 
-    public Double setNewPriceForSnackId(String snack, Double newPrice) {
-        return priceBySnackId.put(snack, newPrice);
+    public Map.Entry<String, Double> setNewPriceForSnackId(String snack, Double newPrice) {
+        Double nP = priceBySnackId.put(snack, newPrice);
+        return Map.entry(snack, nP);
     }
+
+
+
+
 
 }

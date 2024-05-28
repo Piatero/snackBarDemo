@@ -22,10 +22,15 @@ public class AdminController {
         this.vendingMachineService = vendingMachineService;
     }
 
-    @GetMapping("/refill-machine")
-    public Map<String, Integer> addMoney(@RequestParam Map<String, String> snacks) {
-        return vendingMachineService.refillSnack(snacks);
+    @GetMapping("/give-price")
+    public Map<String, Double> givePrice(@RequestParam Map<String, String> snacks) {
+        return vendingMachineService.givePrices(snacks);
     }
 
-    //@GetMapping("/add-item")
+    @GetMapping("/refill-machine")
+    public Map<String, Integer> addMoney(@RequestParam Map<String, String> snacks) {
+        return vendingMachineService.refillSnacks(snacks);
+    }
+
+
 }

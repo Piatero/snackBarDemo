@@ -39,9 +39,9 @@ public class SnackService {
         return snackRepository.decrementAvailable(snack);
     }
 
-    public Double setNewPriceForSnackId(String snack, Double newPrice) {
-        return priceRepository.setNewPriceForSnackId(snack, newPrice);
-    }
+//    public Double setNewPriceForSnackId(String snack, Double newPrice) {
+//        return priceRepository.setNewPriceForSnackId(snack, newPrice);
+//    }
 
     public Map<String, Integer> refillSnacks(Map<String, String> snacks) {
         Map<String, Integer> toAdd = new HashMap<>();
@@ -53,5 +53,15 @@ public class SnackService {
             }
         });
         return toAdd;
+    }
+
+    public Map <String, Double> setNewPricesForSnackIds(Map<String, String> prices) {
+        Map<String, Double> toGive = new HashMap<>();
+        prices.forEach((key, value) -> {
+            Double price = Double.parseDouble(value);
+            Map.Entry<String, Double> entry = priceRepository.setNewPriceForSnackId(key, price);
+            toGive.put(entry.getKey(), entry.getValue());
+        });
+        return toGive;
     }
 }

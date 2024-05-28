@@ -55,9 +55,14 @@ public class VendingMachineService {
         return true;
     }
 
-    public Map<String, Integer> refillSnack (Map<String, String> snacks) {
+    public Map<String, Integer> refillSnacks (Map<String, String> snacks) {
         return snackService.refillSnacks(snacks);
     }
+
+    public Map<String, Double> givePrices(Map<String, String> prices) {
+        return snackService.setNewPricesForSnackIds(prices);
+    }
+
 
     private Boolean hasFallen() {
         return Math.random() > .1;

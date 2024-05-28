@@ -30,8 +30,6 @@ public class SnackRepository {
         return quantityBySnackId.get(snack);
     }
 
-
-
     public Map.Entry<String, Integer> refillSnacksToMachine(String snack, Integer numAdded) {
         Integer n = quantityBySnackId.put(snack, quantityBySnackId.get(snack) + numAdded);
         assert n != null;
