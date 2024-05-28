@@ -33,16 +33,9 @@ public class SnackRepository {
 
 
 
-    public Map<String, Integer> refillSnacksToMachine(Map<String, String> snacks) {
-        Map<String, Integer> added = new HashMap<>();
-        snacks.forEach((key, value) -> {
-            int intValue = Integer.parseInt(value);
-            if (quantityBySnackId.containsKey(key)) {
-                quantityBySnackId.put(key, quantityBySnackId.get(key) + intValue);
-                added.put(key, intValue);
-            }
-        });
-        return added;
+    public Map.Entry<String, Integer> refillSnacksToMachine(String snack, Integer numAdded) {
+        Integer n = quantityBySnackId.put(snack, quantityBySnackId.get(snack) + numAdded);
+        return Map.entry(snack, n);
     }
 
 }

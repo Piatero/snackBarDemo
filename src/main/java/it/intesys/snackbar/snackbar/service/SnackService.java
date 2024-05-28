@@ -2,12 +2,11 @@ package it.intesys.snackbar.snackbar.service;
 
 import it.intesys.snackbar.snackbar.repository.PriceRepository;
 import it.intesys.snackbar.snackbar.repository.SnackRepository;
-import it.intesys.snackbar.snackbar.repository.UserRepository;
-import it.intesys.snackbar.snackbar.repository.WalletRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -45,6 +44,14 @@ public class SnackService {
     }
 
     public Map<String, Integer> refillSnacks(Map<String, String> snacks) {
-        return snackRepository.refillSnacksToMachine(snacks);
+        Map<String, Integer> toAdd = new HashMap<>();
+        snacks.forEach((key, value) -> {
+            int intValue = Integer.parseInt(value);
+            if (snackRepository.snackExists(key)) {
+                Map.Entry<String, Integer> entry = snackRepository.refillSnacksToMachine(key, intValue);
+                toAdd.put(entry.getKey(), entry.getValue());
+            }
+        });
+        return toAdd;
     }
 }

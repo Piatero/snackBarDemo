@@ -16,7 +16,6 @@ public class SnackController {
         this.vendingMachineService = vendingMachineService;
     }
 
-
     @GetMapping("/order-snack")
     public Boolean orderSnack(@RequestParam("user") String user,
                               @RequestParam("snack") String snack) {
